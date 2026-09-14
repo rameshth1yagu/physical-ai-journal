@@ -38,3 +38,10 @@ flashed with the Super config (/etc/nvpmodel.conf -> nvpmodel_p3767_0003_super.c
 3. Root on microSD; Isaac ROS wants 128+ GB NVMe.
 4. OAK-D-Lite has no dot projector -> passive stereo unreliable on blank walls.
 5. Intermittent DNS resolution failures on wlP1p1s0 during pip/apt.
+
+## Multi-machine ROS 2 — verified 2026-09-14
+- Jetson: ROS 2 Humble desktop-full 0.10.0, Ubuntu 22.04, 192.168.4.36 (wlP1p1s0)
+- Mac: ROS 2 Humble desktop 0.10.0 via RoboStack/pixi, macOS 26.6.1 arm64 (M4 Pro), 192.168.4.43
+- ROS_DOMAIN_ID=42, default Fast DDS, Wi-Fi multicast discovery working
+- Verified: talker on Jetson, `ros2 topic echo /chatter` on Mac, late-join at msg 20
+- CycloneDDS unicast fallback installed on Mac but not required
